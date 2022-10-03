@@ -9,8 +9,8 @@ using namespace std;
 //////////////////// Prototype Functions /////////////////////////////////////
 void TranslatePick(int flag_who, char selection);
 char ComputerSelectRPSLK();
-void DetermineWinner (int userPick, int computerPick);
-
+void DetermineWinner (char userPick, char computerPick);
+string Wrand ();
 int main() {
 
   
@@ -46,98 +46,13 @@ TranslatePick(1, computerPick); // Inform user of computer selection
 // HANDOUT (PART B): Inform the user who won.
 // HANDOUT (PART C): Randomly display celebratory messages if user won.
 
-  if (userPick == 'R'){
-    if (computerPick == 'R'){
-      cout << "It's a tie!" << endl;
-    }
-    if (computerPick == 'P'){
-      cout << "You lose" << endl;
-    }
-    if (computerPick == 'S'){
-      cout << "You win!" << endl;
-    }
-    if (computerPick == 'L'){
-      cout << "You win!" << endl;
-    }
-    if (computerPick == 'K'){
-      cout << "You lose" << endl;
-    }
-  }
-  if (userPick == 'P'){
-    if (computerPick == 'P'){
-      cout << "It's a tie!" << endl;
-    }
-    if (computerPick == 'L'){
-      cout << "You lose" << endl;
-    }
-    if (computerPick == 'R'){
-      cout << "You win" << endl;
-    }
-    if (computerPick == 'K'){
-      cout << "You win" << endl;
-    }
-    if (computerPick == 'S'){
-      cout << "You lose" << endl;
-    }
-  }
-  if (userPick == 'S'){
-    if (computerPick == 'S'){
-      cout << "It's a tie!" << endl;
-    }
-    if (computerPick == 'K'){
-      cout << "You lose" << endl;
-    }
-    if (computerPick == 'L'){
-      cout << "You win" << endl;
-    }
-    if (computerPick == 'P'){
-      cout << "You win" << endl;
-    }
-    if (computerPick == 'R'){
-      cout << "You lose" << endl;
-    }
-  }
-  if (userPick == 'L'){
-    if (computerPick == 'L'){
-      cout << "It's a tie!" << endl;
-    }
-    if (computerPick == 'S'){
-      cout << "You lose" << endl;
-    }
-    if (computerPick == 'P'){
-      cout << "You win" << endl;
-    }
-    if (computerPick == 'K'){
-      cout << "You win" << endl;
-    }
-    if (computerPick == 'R'){
-      cout << "You lose" << endl;
-    }
-  }
-  if (userPick == 'K'){
-    if (computerPick == 'K'){
-      cout << "It's a tie!" << endl;
-    }
-    if (computerPick == 'L'){
-      cout << "You lose" << endl;
-    }
-    if (computerPick == 'S'){
-      cout << "You win" << endl;
-    }
-    if (computerPick == 'R'){
-      cout << "You win" << endl;
-    }
-    if (computerPick == 'P'){
-      cout << "You lose" << endl;
-    }
-  }
+  DetermineWinner(userPick,computerPick);
+
+  
   
   
   return 0;
-  }
-
-  
-
+  } 
 
 /////////////// User-Created Functions ////////////////////////////////////////
 /* Descprition: This function is used to translate the character selection to a
@@ -174,7 +89,36 @@ cout << "Check code for errors. Message from TranslatePick fcn." << endl;
 return;
 }
 
-void DetermineWinner (int userPick, int computerPick)
+string Wrand()
+{
+
+  string winner;
+  int WrandPick;
+
+  srand (time(NULL));
+  WrandPick = rand() % 3;
+
+  switch (WrandPick){
+    case 0: 
+    winner = "You won!";
+    break;
+    case 1:
+    winner = "Congratulations you win!";
+    break;
+    case 2:
+    winner = "You beat the computer!";
+    break;
+    default:
+     cout << "Error";
+  }
+
+  return winner;
+}
+
+
+
+// function to determine winner 
+void DetermineWinner (char userPick, char computerPick)
 {
   if (userPick == 'R'){
     if (computerPick == 'R'){
@@ -184,10 +128,10 @@ void DetermineWinner (int userPick, int computerPick)
       cout << "You lose" << endl;
     }
     if (computerPick == 'S'){
-      cout << "You win!" << endl;
+      cout << Wrand () << endl;
     }
     if (computerPick == 'L'){
-      cout << "You win!" << endl;
+      cout << Wrand () << endl;
     }
     if (computerPick == 'K'){
       cout << "You lose" << endl;
@@ -201,10 +145,10 @@ void DetermineWinner (int userPick, int computerPick)
       cout << "You lose" << endl;
     }
     if (computerPick == 'R'){
-      cout << "You win" << endl;
+      cout << Wrand () << endl;
     }
     if (computerPick == 'K'){
-      cout << "You win" << endl;
+      cout << Wrand () << endl;
     }
     if (computerPick == 'S'){
       cout << "You lose" << endl;
@@ -218,10 +162,10 @@ void DetermineWinner (int userPick, int computerPick)
       cout << "You lose" << endl;
     }
     if (computerPick == 'L'){
-      cout << "You win" << endl;
+      cout << Wrand () << endl;
     }
     if (computerPick == 'P'){
-      cout << "You win" << endl;
+      cout << Wrand () << endl;
     }
     if (computerPick == 'R'){
       cout << "You lose" << endl;
@@ -235,10 +179,10 @@ void DetermineWinner (int userPick, int computerPick)
       cout << "You lose" << endl;
     }
     if (computerPick == 'P'){
-      cout << "You win" << endl;
+      cout << Wrand () << endl;
     }
     if (computerPick == 'K'){
-      cout << "You win" << endl;
+      cout << Wrand () << endl;
     }
     if (computerPick == 'R'){
       cout << "You lose" << endl;
@@ -252,18 +196,15 @@ void DetermineWinner (int userPick, int computerPick)
       cout << "You lose" << endl;
     }
     if (computerPick == 'S'){
-      cout << "You win" << endl;
+      cout << Wrand () << endl;
     }
     if (computerPick == 'R'){
-      cout << "You win" << endl;
+      cout << Wrand () << endl;
     }
     if (computerPick == 'P'){
       cout << "You lose" << endl;
     }
   }
-  
-  
-  return 0;
   }
 
 
